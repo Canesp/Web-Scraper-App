@@ -1,5 +1,5 @@
 [package]
-name = "web-scraper-app"
+name = "web-scraper"
 version = "0.0.0"
 description = "A Tauri App"
 authors = ["you"]
