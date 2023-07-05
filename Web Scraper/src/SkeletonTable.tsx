@@ -1,29 +1,69 @@
 import React from 'react';
-import { Table } from '@mantine/core';
+import { Skeleton, Table, Space } from '@mantine/core';
 
 const SkeletonTable = () => {
   return (
-    <Table>
+    <Table striped highlightOnHover withColumnBorders withBorder>
       {/* Add table headers */}
       <thead>
         <tr>
-          <th>Column 1</th>
-          <th>Column 2</th>
-          <th>Column 3</th>
+          <th><Skeleton height={8} radius="xl" /></th>
+          <th><Skeleton height={8} radius="xl" /></th>
+          <th><Skeleton height={8} radius="xl" /></th>
           {/* Add more columns as needed */}
         </tr>
       </thead>
 
-      {/* Add table body */}
       <tbody>
-        {/* Add table rows */}
+
         <tr>
-          <td>Loading...</td>
-          <td>Loading...</td>
-          <td>Loading...</td>
-          {/* Add more cells as needed */}
+          <td><Space h="4vh" /></td>
+          <td></td>
+          <td></td>
         </tr>
-        {/* Add more rows as needed */}
+
+        <tr>
+          <td><Space h="4vh" /></td>
+          <td></td>
+          <td></td>
+        </tr>
+
+        <tr>
+          <td><Space h="4vh" /></td>
+          <td></td>
+          <td></td>
+        </tr>
+
+        <tr>
+          <td><Space h="4vh" /></td>
+          <td></td>
+          <td></td>
+        </tr>
+
+        <tr>
+          <td><Space h="4vh" /></td>
+          <td></td>
+          <td></td>
+        </tr>
+
+        <tr>
+          <td><Space h="4vh" /></td>
+          <td></td>
+          <td></td>
+        </tr>
+
+        <tr>
+          <td><Space h="4vh" /></td>
+          <td></td>
+          <td></td>
+        </tr>
+
+        <tr>
+          <td><Space h="4vh" /></td>
+          <td></td>
+          <td></td>
+        </tr>
+
       </tbody>
     </Table>
   );
