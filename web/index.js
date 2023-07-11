@@ -1,5 +1,5 @@
 
-function fncDoThings() {
+function checkUrlAuth() {
 
     var url_input = document.getElementById("url-Input");
     var input_value = url_input.value;
@@ -16,3 +16,13 @@ function fncDoThings() {
 
     });
 };
+
+function inputBlur() {
+
+    var url_input = document.getElementById("url-Input");
+    var input_value = url_input.value;
+
+    if (input_value == 0) {
+        url_input.style.borderColor = "";
+    }
+}
