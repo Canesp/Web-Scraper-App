@@ -26,3 +26,10 @@ function inputBlur() {
         url_input.style.borderColor = "";
     }
 }
+
+function toggleSelectMenu() {
+    var select_Menu = document.getElementsByClassName("Multi-Select-Container")[0];
+
+    select_Menu.classList.toggle("active");
+}
+

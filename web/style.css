@@ -52,3 +52,68 @@ input:focus {
 input:not(:focus) {
     border: 2px solid transparent;
 }
+
+.Multi-Select-Container {
+    max-width: 100%;
+    padding-left: 10px;
+    padding-right: 10px;
+    margin-top: 10%;
+    font-family: "Poppins";
+    color: #ffffff;
+}
+
+.Multi-Select-Container .Select-button {
+    display: flex;
+    height: 40px;
+    background-color: #25262B;
+    padding-left: 15px;
+    padding-right: 15px;
+    border-radius: 5px;
+    align-items: center;
+    justify-content: space-between;
+    cursor: pointer;
+    font-size: 15px;
+    user-select: none;
+}
+
+.Select-button i {
+    font-size: 20px;
+    transition: 0.3s;
+}
+
+.Multi-Select-Container.active .Select-button i {
+    transform: rotate(-180deg);
+}
+
+.Multi-Select-Container .options {
+    position: relative;
+    padding: 20px;
+    margin-top: 10px;
+    border-radius: 5px;
+    background-color: #25262B;
+    display: none;
+}
+
+.Multi-Select-Container.active .options {
+    display: block;
+}
+
+.options .option {
+    display: flex;
+    height: 30px;
+    cursor: pointer;
+    padding: 0 16px;
+    border-radius: 5px;
+    align-items: center;
+    background-color: #25262B;
+    font-size: 15px;
+}
+
+.option i {
+    font-size: 25px;
+    margin-right: 10px;
+}
+
+.options .option:hover {
+    background-color: #4b4b4b;
+}
