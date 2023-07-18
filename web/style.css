@@ -60,6 +60,7 @@ input:not(:focus) {
     margin-top: 10%;
     font-family: "Poppins";
     color: #ffffff;
+    position: relative;
 }
 
 .Multi-Select-Container .Select-button {
@@ -86,12 +87,16 @@ input:not(:focus) {
 }
 
 .Multi-Select-Container .options {
-    position: relative;
+    display: none;
+    position: absolute;
+    right: 0;
+    left: 0;
+    margin-right: 10px;
+    margin-left: 10px;
+    margin-top: 20px;
     padding: 20px;
-    margin-top: 10px;
     border-radius: 5px;
     background-color: #25262B;
-    display: none;
 }
 
 .Multi-Select-Container.active .options {
@@ -107,6 +112,7 @@ input:not(:focus) {
     align-items: center;
     background-color: #25262B;
     font-size: 15px;
+
 }
 
 .option i {
