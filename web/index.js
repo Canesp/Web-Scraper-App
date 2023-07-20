@@ -1,4 +1,6 @@
 
+const urlTrue = false;
+
 function checkUrlAuth() {
 
     var url_input = document.getElementById("url-Input");
@@ -8,14 +10,30 @@ function checkUrlAuth() {
 
         if (response == false && input_value != 0) {
             url_input.style.borderColor = "red";
+            urlTrue = false;
         } else if (response == true) {
             url_input.style.borderColor = "green";
+            getWebElements(input_value)
+            urlTrue = true;
         } else {
             url_input.style.borderColor = "#3C4FFA";
+            urlTrue = false;
         }
 
     });
 };
+
+function getWebElements(url) {
+
+    //const element_list = [];
+
+    eel.getWebElements(url)(function (response){
+        //element_list = response;
+        addElementsToDiv(response);
+    });
+
+    //console.log(element_list);
+}
 
 function inputBlur() {
 
@@ -55,3 +73,23 @@ document.addEventListener("click", function (event) {
     // Clicked outside 'a' and parent elements, returns.
     return;
 });
+
+function addElementsToDiv(classNamesList) {
+    const targetDiv = document.getElementById("options");
+
+    classNamesList.forEach(className => {
+      const listItem = document.createElement('li');
+      listItem.className = 'option';
+
+      const icon = document.createElement('i');
+      icon.className = 'bx bx-checkbox';
+
+      const span = document.createElement('span');
+      span.textContent = className[0];
+
+      listItem.appendChild(icon);
+      listItem.appendChild(span);
+
+      targetDiv.appendChild(listItem);
+    });
+  }

@@ -98,6 +98,7 @@ input:not(:focus) {
     border-radius: 5px;
     background-color: #25262B;
     max-height: 250px;
+    overflow: hidden;
 }
 
 .Multi-Select-Container.active .options {
