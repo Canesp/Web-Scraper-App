@@ -98,7 +98,18 @@ input:not(:focus) {
     border-radius: 5px;
     background-color: #25262B;
     max-height: 250px;
-    overflow: hidden;
+    overflow-y: scroll;
+}
+
+.Multi-Select-Container .options::-webkit-scrollbar {
+    width: 6px;
+    background: rgb(33, 33, 33);
+    border-radius: 0 8px 8px 0;
+}
+
+.Multi-Select-Container .options::-webkit-scrollbar-thumb {
+    background-color: #4b4b4b;
+    border-radius: 0 8px 8px 0;
 }
 
 .Multi-Select-Container.active .options {
