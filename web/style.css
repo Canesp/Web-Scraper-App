@@ -105,6 +105,11 @@ input:not(:focus) {
     display: block;
 }
 
+.Multi-Select-Container.disabled .Select-button {
+    opacity: 0.5;
+    pointer-events: none;
+}
+
 .options .option {
     display: flex;
     height: 30px;
@@ -114,7 +119,8 @@ input:not(:focus) {
     align-items: center;
     background-color: #25262B;
     font-size: 15px;
-
+    overflow: hidden;
+    white-space: nowrap;
 }
 
 .option i {

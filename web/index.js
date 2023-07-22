@@ -1,23 +1,46 @@
 
-const urlTrue = false;
-
+// function to check if a url is OK.
 function checkUrlAuth() {
 
-    var url_input = document.getElementById("url-Input");
+    // get url inout element and value.
+    const url_input = document.getElementById("url-Input");
     var input_value = url_input.value;
 
+    // gets select menu element to check if disabled.
+    const select_Menu = document.getElementsByClassName("Multi-Select-Container")[0];
+
+    // uses the py function to check url.
     eel.webAuthenticator(input_value)(function (response) {
 
+        // changes style of input if success or fail and class function to retive elements from site. 
         if (response == false && input_value != 0) {
+
             url_input.style.borderColor = "red";
-            urlTrue = false;
+
+            // checks if select menu is disabled.
+            if (!select_Menu.classList.contains("disabled")) {
+                toggleSelectMenuDisable();
+            }
+
         } else if (response == true) {
+
             url_input.style.borderColor = "green";
-            getWebElements(input_value)
-            urlTrue = true;
+            getWebElements(input_value);
+
+            // checks if select menu is disabled.
+            if (select_Menu.classList.contains("disabled")) {
+                toggleSelectMenuDisable();
+            }
+
         } else {
+
             url_input.style.borderColor = "#3C4FFA";
-            urlTrue = false;
+
+            // checks if select menu is disabled.
+            if (!select_Menu.classList.contains("disabled")) {
+                toggleSelectMenuDisable();
+            }
+
         }
 
     });
@@ -25,14 +48,12 @@ function checkUrlAuth() {
 
 function getWebElements(url) {
 
-    //const element_list = [];
+    eel.getWebElements(url)(function (response) {
 
-    eel.getWebElements(url)(function (response){
-        //element_list = response;
-        addElementsToDiv(response);
+        removeOptions("options");
+        addOption(response);
     });
 
-    //console.log(element_list);
 }
 
 function inputBlur() {
@@ -51,6 +72,12 @@ function toggleSelectMenu() {
     select_Menu.classList.toggle("active");
 }
 
+function toggleSelectMenuDisable() {
+    const select_Menu = document.getElementsByClassName("Multi-Select-Container")[0];
+
+    select_Menu.classList.toggle("disabled");
+}
+
 document.addEventListener("click", function (event) {
 
     const parentElements = document.querySelectorAll(".Multi-Select-Container");
@@ -66,7 +93,7 @@ document.addEventListener("click", function (event) {
         // Check if the parent element has the 'active' class indicating it has an active toggle state
         if (parentElement.classList.contains("active")) {
             // Parent element is active, call the function.
-            toggleSelectMenu();;
+            toggleSelectMenu();
         }
     }
 
@@ -74,22 +101,49 @@ document.addEventListener("click", function (event) {
     return;
 });
 
-function addElementsToDiv(classNamesList) {
+function addOption(classNamesList) {
     const targetDiv = document.getElementById("options");
 
     classNamesList.forEach(className => {
-      const listItem = document.createElement('li');
-      listItem.className = 'option';
+        const listItem = document.createElement('li');
+        listItem.className = 'option';
 
-      const icon = document.createElement('i');
-      icon.className = 'bx bx-checkbox';
+        const icon = document.createElement('i');
+        icon.className = 'bx bx-checkbox';
 
-      const span = document.createElement('span');
-      span.textContent = className[0];
+        const span = document.createElement('span');
+        span.textContent = className[0];
 
-      listItem.appendChild(icon);
-      listItem.appendChild(span);
+        listItem.appendChild(icon);
+        listItem.appendChild(span);
+        listItem.setAttribute("onclick","checkOption(this);");
 
-      targetDiv.appendChild(listItem);
+        targetDiv.appendChild(listItem);
     });
-  }
+}
+
+function removeOptions(dropdownId) {
+
+    const dropdownElement = document.getElementById(dropdownId);
+
+    while (dropdownElement.firstChild) {
+        dropdownElement.removeChild(dropdownElement.firstChild);
+    }
+
+}
+
+function checkOption(option) {
+
+    // gets firts child of element that is icon.
+    const iconElement = option.firstChild
+
+    // checks if its already checked if not changes the icon to checked and vice versa. 
+    if (iconElement.classList.contains("bx-checkbox")) {
+        iconElement.classList.remove("bx-checkbox");
+        iconElement.classList.add("bxs-checkbox-checked");
+    }
+    else {
+        iconElement.classList.remove("bxs-checkbox-checked");
+        iconElement.classList.add("bx-checkbox");
+    }
+}
