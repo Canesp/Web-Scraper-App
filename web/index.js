@@ -1,3 +1,5 @@
+var option_list = [];
+var checked_options = [];
 
 // function to check if a url is OK.
 function checkUrlAuth() {
@@ -103,6 +105,7 @@ document.addEventListener("click", function (event) {
 
 function addOption(classNamesList) {
     const targetDiv = document.getElementById("options");
+    option_list = classNamesList;
 
     classNamesList.forEach(className => {
         const listItem = document.createElement('li');
@@ -116,7 +119,7 @@ function addOption(classNamesList) {
 
         listItem.appendChild(icon);
         listItem.appendChild(span);
-        listItem.setAttribute("onclick","checkOption(this);");
+        listItem.setAttribute("onclick", "checkOption(this);");
 
         targetDiv.appendChild(listItem);
     });
@@ -135,15 +138,36 @@ function removeOptions(dropdownId) {
 function checkOption(option) {
 
     // gets firts child of element that is icon.
-    const iconElement = option.firstChild
+    const iconElement = option.firstChild;
+
+    const spanElement = option.children[1];
 
     // checks if its already checked if not changes the icon to checked and vice versa. 
     if (iconElement.classList.contains("bx-checkbox")) {
+
         iconElement.classList.remove("bx-checkbox");
         iconElement.classList.add("bxs-checkbox-checked");
+
+        // adds classtag to checked_elements list.
+        option_list.forEach(classtag => {
+            if (classtag[0] == spanElement.textContent) {
+                checked_options.push(classtag);
+            }
+        });
+
     }
     else {
         iconElement.classList.remove("bxs-checkbox-checked");
         iconElement.classList.add("bx-checkbox");
+
+        // removes checked item from checked_element list.
+        checked_options.forEach((classtag, index) => {
+            if (classtag[0] == spanElement.textContent) {
+                checked_options.splice(index, 1);
+            }
+        });
+
     }
+
+    console.log(checked_options);
 }
