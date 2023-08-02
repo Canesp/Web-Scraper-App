@@ -17,7 +17,7 @@ function checkUrlAuth() {
         // changes style of input if success or fail and class function to retive elements from site. 
         if (response == false && input_value != 0) {
 
-            url_input.style.borderColor = "red";
+            url_input.style.borderColor = "#fb75a1";
 
             // checks if select menu is disabled.
             if (!select_Menu.classList.contains("disabled")) {
@@ -26,7 +26,7 @@ function checkUrlAuth() {
 
         } else if (response == true) {
 
-            url_input.style.borderColor = "green";
+            url_input.style.borderColor = "#6febb8";
             getWebElements(input_value);
 
             // checks if select menu is disabled.

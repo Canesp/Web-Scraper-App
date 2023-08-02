@@ -5,7 +5,7 @@ body {
     flex-direction: row;
     margin-top: 0;
     margin-bottom: 0;
-    background-color: #1A1C21;
+    background-color: #191e28;
     min-height: 100vh;
 }
 
@@ -27,7 +27,7 @@ body {
 
 hr {
     width: 100%;
-    border-color: #4b4b4b;
+    border-color: #272e3d;
 }
 
 input {
@@ -35,9 +35,9 @@ input {
     max-width: 100%;
     border: none;
     outline: none;
-    border: 2px solid transparent;
+    border: 1px solid transparent;
     color: #ffffff;
-    background-color: #25262B;
+    background-color: #272e3d;
     font-family: "Poppins";
     padding-left: 10px;
     padding-right: 10px;
@@ -46,11 +46,16 @@ input {
 }
 
 input:focus {
-    border: 2px solid #3C4FFA;
+    border: 1px solid #7769f9;
 }
 
 input:not(:focus) {
-    border: 2px solid transparent;
+    border: 1px solid transparent;
+}
+
+::placeholder {
+    
+    color: #858Fa4;
 }
 
 .Multi-Select-Container {
@@ -66,7 +71,7 @@ input:not(:focus) {
 .Multi-Select-Container .Select-button {
     display: flex;
     height: 40px;
-    background-color: #25262B;
+    background-color: #272e3d;
     padding-left: 15px;
     padding-right: 15px;
     border-radius: 5px;
@@ -96,7 +101,7 @@ input:not(:focus) {
     margin-top: 20px;
     padding: 20px;
     border-radius: 5px;
-    background-color: #25262B;
+    background-color: #272e3d;
     max-height: 250px;
     overflow-y: scroll;
 }
@@ -108,7 +113,7 @@ input:not(:focus) {
 }
 
 .Multi-Select-Container .options::-webkit-scrollbar-thumb {
-    background-color: #4b4b4b;
+    background-color: #373e4e;
     border-radius: 0 8px 8px 0;
 }
 
@@ -128,7 +133,7 @@ input:not(:focus) {
     padding: 0 16px;
     border-radius: 5px;
     align-items: center;
-    background-color: #25262B;
+    background-color: #272e3d;
     font-size: 15px;
     overflow: hidden;
     white-space: nowrap;
@@ -140,5 +145,28 @@ input:not(:focus) {
 }
 
 .options .option:hover {
-    background-color: #4b4b4b;
+    background-color: #202633;
+}
+
+button {
+    height: 40px;
+    max-width: 100%;
+    border: none;
+    outline: none;
+    margin: 10px;
+    margin-top: 100%;
+    font-family: "Poppins";
+    color: #ffffff;
+    border-radius: 5px;
+    background-color: #7769f9;
+    cursor: pointer;
+    top: 100%
+}
+
+button:hover {
+    background-color: #636edd;
+}
+
+button:active {
+    background-color: #4e59c3;
 }
