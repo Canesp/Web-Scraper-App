@@ -39,7 +39,8 @@ def GetWebElements(url):
                 
                 # appends to the two lists.
                 element_name_list.append(element_option)
-                element_list.append([element_option, element])
+                element_list.append([element_option, element_class])
+                
     
     # returns the list of elements to be used. 
     return element_list
